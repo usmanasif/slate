@@ -83,6 +83,9 @@ html, body {
   &>img {
     display: block;
     max-width: 100%;
+    margin: 10% 0% 5% 40%;
+    width: 18%;
+    height: 10%;
   }
 
   &>.search {
@@ -624,4 +627,9 @@ html, body {
 
 .highlight, .highlight .w {
   background-color: $code-bg;
+}
+
+.pronoun_title {
+  color: white;
+  margin-left: 34%;
 }
