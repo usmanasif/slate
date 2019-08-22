@@ -200,7 +200,7 @@
       <script src="javascripts/all.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;python&quot;,&quot;javascript&quot;]">
+  <body class="index" data-languages="[&quot;json&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -208,13 +208,10 @@
       </span>
     </a>
     <div class="tocify-wrapper">
-      <img src="images/pogo.png" class="logo" alt="Pogo" />
-      <b class="pronoun_title" >Pronoun.io</b>
+      <img src="images/quran.png" class="logo" alt="Quran" />
+      <b class="pronoun_title" >Al-Quran.io</b>
         <div class="lang-selector">
-              <a href="#" data-language-name="shell">shell</a>
-              <a href="#" data-language-name="ruby">ruby</a>
-              <a href="#" data-language-name="python">python</a>
-              <a href="#" data-language-name="javascript">javascript</a>
+              <a href="#" data-language-name="json">json</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -224,7 +221,6 @@
       </div>
         <ul class="toc-footer">
             <li><a href='#'>Sign Up for a Developer Key</a></li>
-            <li><a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a></li>
         </ul>
     </div>
     <div class="page-wrapper">
@@ -232,95 +228,20 @@
       <div class="content">
         <h1 id="introduction">Introduction</h1>
 
-<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
+<p>Welcome to the QURAN API! You can use our API to access QURAN API endpoints, which can provide you with quranic surahs, ayahs, edition etc in our database.</p>
 
-<p>We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
+<h1 id="quran">QURAN</h1>
 
-<p>This example API documentation page was created with <a href="https://github.com/tripit/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&rsquo;s documentation.</p>
+<h2 id="get-quran">Get Quran</h2>
 
-<h1 id="authentication">Authentication</h1>
-<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<p>This endpoint retrieves whole quran in arabic.</p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+<h3 id="http-request">HTTP Request</h3>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
+<p><code class="prettyprint">GET https://alquran.com/api/v1/get_quran</code></p>
 
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-</code></pre>
 <blockquote>
-<p>Make sure to replace <code class="prettyprint">meowmeowmeow</code> with your API key.</p>
-</blockquote>
-
-<p>Pronoun.io uses API keys to allow access to the API. You can register at <a href="https://pronoun-io.herokuapp.com">pronoun.io</a> to get your API keys.</p>
-
-<p><strong>Pronoun.io API expects for the following API keys to be included in all API requests to the server in a header :</strong></p>
-
-<ul>
-<li><p><strong>access_id</strong> -&gt; Your access_id at registered with pronoun.io</p></li>
-<li><p><strong>time</strong> -&gt; The time at which you make the API call</p></li>
-<li><p><strong>content-md5</strong> -&gt; This is the hex digest generated using the time stamp and your secret-key(auth_token) from pronoun.io</p></li>
-</ul>
-
-<aside class="notice">
-You must replace the values of above <code>variables</code> with your personal API keys in the header of every request of the provided code.
-</aside>
-
-<h1 id="wallet">Wallet</h1>
-
-<h2 id="get-wallet-credit">Get Wallet Credit</h2>
-<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'uri'</span>
-<span class="nb">require</span> <span class="s1">'net/http'</span>
-
-<span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"https://pronoun-io.herokuapp.com/api/v1/wallets/get_wallet_credit"</span><span class="p">)</span>
-
-<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
-<span class="n">http</span><span class="p">.</span><span class="nf">use_ssl</span> <span class="o">=</span> <span class="kp">true</span>
-<span class="n">http</span><span class="p">.</span><span class="nf">verify_mode</span> <span class="o">=</span> <span class="no">OpenSSL</span><span class="o">::</span><span class="no">SSL</span><span class="o">::</span><span class="no">VERIFY_NONE</span>
-
-<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"access_id"</span><span class="p">]</span> <span class="o">=</span> <span class="no">Your</span> <span class="no">Access_id</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"time"</span><span class="p">]</span> <span class="o">=</span> <span class="no">Time</span><span class="p">.</span><span class="nf">now</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"content-md5"</span><span class="p">]</span> <span class="o">=</span> <span class="no">Your</span> <span class="no">Content</span><span class="o">-</span><span class="no">MD5</span>
-
-<span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
-<span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
-
-<span class="n">url</span> <span class="o">=</span> <span class="s">"https://pronoun-io.herokuapp.com/api/v1/wallets/get_wallet_credit"</span>
-
-<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">'access_id'</span><span class="p">:</span> <span class="s">"7493ffbeb7a8d221f6d15987945d8228"</span><span class="p">,</span>
-    <span class="s">'time'</span><span class="p">:</span> <span class="s">"2017"</span><span class="p">,</span>
-    <span class="s">'content-md5'</span><span class="p">:</span> <span class="s">"64b4aa1d9e883e0e18a920dabf8f50db"</span><span class="p">,</span>
-    <span class="p">}</span>
-
-<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl -X GET -H <span class="s2">"ACCESS_ID: Your Access_id"</span> -H <span class="s2">"Time: Time.now"</span> -H <span class="s2">"CONTENT-MD5: Your Content-MD5"</span> <span class="s2">"https://pronoun-io.herokuapp.com/api/v1/wallets/get_wallet_credit"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s2">"async"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="s2">"crossDomain"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://pronoun-io.herokuapp.com/api/v1/wallets/get_wallet_credit"</span><span class="p">,</span>
-  <span class="s2">"method"</span><span class="p">:</span> <span class="s2">"GET"</span><span class="p">,</span>
-  <span class="s2">"headers"</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s2">"access_id"</span><span class="p">:</span> <span class="nx">Your</span> <span class="nx">Access_id</span><span class="p">,</span>
-    <span class="s2">"time"</span><span class="p">:</span> <span class="nx">Time</span><span class="p">.</span><span class="nx">now</span><span class="p">,</span>
-    <span class="s2">"content-md5"</span><span class="p">:</span> <span class="nx">Your</span> <span class="nx">Content</span><span class="o">-</span><span class="nx">MD5</span><span class="p">,</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">settings</span><span class="p">).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
-<span class="p">});</span>
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>The response returns from the endpoint will be in JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
@@ -328,405 +249,32 @@ You must replace the values of above <code>variables</code> with your personal A
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves wallet credit.</p>
+<h2 id="get-quran-editions">Get Quran Editions</h2>
+
+<p>This endpoint retrieves translations or tafsir or audio parah wise / surah wise of whole quran.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://pronoun-io.herokuapp.com/api/v1/wallets/get_wallet_credit</code></p>
+<p><code class="prettyprint">GET https://alquran.com/api/v1/get_quran_editions</code></p>
 
-<h1 id="user">User</h1>
-
-<h2 id="get-user-name">Get User Name</h2>
-<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'uri'</span>
-<span class="nb">require</span> <span class="s1">'net/http'</span>
-
-<span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"https://pronoun-io.herokuapp.com/api/v1/users/get_user_name"</span><span class="p">)</span>
-
-<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
-<span class="n">http</span><span class="p">.</span><span class="nf">use_ssl</span> <span class="o">=</span> <span class="kp">true</span>
-<span class="n">http</span><span class="p">.</span><span class="nf">verify_mode</span> <span class="o">=</span> <span class="no">OpenSSL</span><span class="o">::</span><span class="no">SSL</span><span class="o">::</span><span class="no">VERIFY_NONE</span>
-
-<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"access_id"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'7493ffbeb7a8d221f6d15987945d8228'</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"time"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'2017'</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"content-md5"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'64b4aa1d9e883e0e18a920dabf8f50db'</span>
-
-<span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
-<span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
-
-<span class="n">url</span> <span class="o">=</span> <span class="s">"https://pronoun-io.herokuapp.com/api/v1/users/get_user_name"</span>
-
-<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">'access_id'</span><span class="p">:</span> <span class="s">"7493ffbeb7a8d221f6d15987945d8228"</span><span class="p">,</span>
-    <span class="s">'time'</span><span class="p">:</span> <span class="s">"2017"</span><span class="p">,</span>
-    <span class="s">'content-md5'</span><span class="p">:</span> <span class="s">"64b4aa1d9e883e0e18a920dabf8f50db"</span><span class="p">,</span>
-    <span class="p">}</span>
-
-<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl -X GET -H <span class="s2">"ACCESS_ID: 7493ffbeb7a8d221f6d15987945d8228"</span> -H <span class="s2">"Time: 2017"</span> -H <span class="s2">"CONTENT-MD5: 64b4aa1d9e883e0e18a920dabf8f50db"</span> <span class="s2">"https://pronoun-io.herokuapp.com/api/v1/users/get_user_name"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s2">"async"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="s2">"crossDomain"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://pronoun-io.herokuapp.com/api/v1/users/get_user_name"</span><span class="p">,</span>
-  <span class="s2">"method"</span><span class="p">:</span> <span class="s2">"GET"</span><span class="p">,</span>
-  <span class="s2">"headers"</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s2">"access_id"</span><span class="p">:</span> <span class="s2">"7493ffbeb7a8d221f6d15987945d8228"</span><span class="p">,</span>
-    <span class="s2">"time"</span><span class="p">:</span> <span class="s2">"2017"</span><span class="p">,</span>
-    <span class="s2">"content-md5"</span><span class="p">:</span> <span class="s2">"64b4aa1d9e883e0e18a920dabf8f50db"</span><span class="p">,</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">settings</span><span class="p">).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
-<span class="p">});</span>
-</code></pre>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>The response returns from the endpoint will be in JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">" first_name - last_name"</span><span class="w">
+    </span><span class="s2">"credit"</span><span class="p">:</span><span class="w"> </span><span class="mf">183.5</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves user&rsquo;s name.</p>
+<h1 id="parah">PARAH</h1>
+
+<h2 id="get-parah">Get Parah</h2>
+
+<p>This endpoint retrieves the whole parah in arabic.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://pronoun-io.herokuapp.com/api/v1/users/get_user_name</code></p>
-
-<h2 id="get-favorite-authors-for-user">Get Favorite Authors For User</h2>
-<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'uri'</span>
-<span class="nb">require</span> <span class="s1">'net/http'</span>
-
-<span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"https://pronoun-io.herokuapp.com/api/v1/authors/favorite_authors"</span><span class="p">)</span>
-
-<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
-<span class="n">http</span><span class="p">.</span><span class="nf">use_ssl</span> <span class="o">=</span> <span class="kp">true</span>
-<span class="n">http</span><span class="p">.</span><span class="nf">verify_mode</span> <span class="o">=</span> <span class="no">OpenSSL</span><span class="o">::</span><span class="no">SSL</span><span class="o">::</span><span class="no">VERIFY_NONE</span>
-
-<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"access_id"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'7493ffbeb7a8d221f6d15987945d8228'</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"time"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'2017'</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"content-md5"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'64b4aa1d9e883e0e18a920dabf8f50db'</span>
-
-<span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
-<span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
-
-<span class="n">url</span> <span class="o">=</span> <span class="s">"https://pronoun-io.herokuapp.com/api/v1/authors/favorite_authors"</span>
-
-<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">'access_id'</span><span class="p">:</span> <span class="s">"7493ffbeb7a8d221f6d15987945d8228"</span><span class="p">,</span>
-    <span class="s">'time'</span><span class="p">:</span> <span class="s">"2017"</span><span class="p">,</span>
-    <span class="s">'content-md5'</span><span class="p">:</span> <span class="s">"64b4aa1d9e883e0e18a920dabf8f50db"</span><span class="p">,</span>
-    <span class="p">}</span>
-
-<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl -X GET -H <span class="s2">"ACCESS_ID: 7493ffbeb7a8d221f6d15987945d8228"</span> -H <span class="s2">"Time: 2017"</span> -H <span class="s2">"CONTENT-MD5: 64b4aa1d9e883e0e18a920dabf8f50db"</span> <span class="s2">"https://pronoun-io.herokuapp.com/api/v1/authors/favorite_authors"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s2">"async"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="s2">"crossDomain"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://pronoun-io.herokuapp.com/api/v1/authors/favorite_authors"</span><span class="p">,</span>
-  <span class="s2">"method"</span><span class="p">:</span> <span class="s2">"GET"</span><span class="p">,</span>
-  <span class="s2">"headers"</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s2">"access_id"</span><span class="p">:</span> <span class="s2">"7493ffbeb7a8d221f6d15987945d8228"</span><span class="p">,</span>
-    <span class="s2">"time"</span><span class="p">:</span> <span class="s2">"2017"</span><span class="p">,</span>
-    <span class="s2">"content-md5"</span><span class="p">:</span> <span class="s2">"64b4aa1d9e883e0e18a920dabf8f50db"</span><span class="p">,</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">settings</span><span class="p">).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
-<span class="p">});</span>
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"favorites"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre>
-<p>This endpoint retrieves user&rsquo;s favorite authors.</p>
-
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code class="prettyprint">GET https://pronoun-io.herokuapp.com/api/v1/authors/favorite_authors</code></p>
-
-<h1 id="order">Order</h1>
-
-<h2 id="get-users-orders">Get User&rsquo;s Orders</h2>
-<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'uri'</span>
-<span class="nb">require</span> <span class="s1">'net/http'</span>
-
-<span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"https://pronoun-io.herokuapp.com/api/v1/orders"</span><span class="p">)</span>
-
-<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
-<span class="n">http</span><span class="p">.</span><span class="nf">use_ssl</span> <span class="o">=</span> <span class="kp">true</span>
-<span class="n">http</span><span class="p">.</span><span class="nf">verify_mode</span> <span class="o">=</span> <span class="no">OpenSSL</span><span class="o">::</span><span class="no">SSL</span><span class="o">::</span><span class="no">VERIFY_NONE</span>
-
-<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"access_id"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'7493ffbeb7a8d221f6d15987945d8228'</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"time"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'2017'</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"content-md5"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'64b4aa1d9e883e0e18a920dabf8f50db'</span>
-
-<span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
-<span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
-
-<span class="n">url</span> <span class="o">=</span> <span class="s">"https://pronoun-io.herokuapp.com/api/v1/orders"</span>
-
-<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">'access_id'</span><span class="p">:</span> <span class="s">"7493ffbeb7a8d221f6d15987945d8228"</span><span class="p">,</span>
-    <span class="s">'time'</span><span class="p">:</span> <span class="s">"2017"</span><span class="p">,</span>
-    <span class="s">'content-md5'</span><span class="p">:</span> <span class="s">"64b4aa1d9e883e0e18a920dabf8f50db"</span><span class="p">,</span>
-    <span class="p">}</span>
-
-<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl -X GET -H <span class="s2">"ACCESS_ID: 7493ffbeb7a8d221f6d15987945d8228"</span> -H <span class="s2">"Time: 2017"</span> -H <span class="s2">"CONTENT-MD5: 64b4aa1d9e883e0e18a920dabf8f50db"</span> <span class="s2">"https://pronoun-io.herokuapp.com/api/v1/orders"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s2">"async"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="s2">"crossDomain"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://pronoun-io.herokuapp.com/api/v1/orders"</span><span class="p">,</span>
-  <span class="s2">"method"</span><span class="p">:</span> <span class="s2">"GET"</span><span class="p">,</span>
-  <span class="s2">"headers"</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s2">"access_id"</span><span class="p">:</span> <span class="s2">"7493ffbeb7a8d221f6d15987945d8228"</span><span class="p">,</span>
-    <span class="s2">"time"</span><span class="p">:</span> <span class="s2">"2017"</span><span class="p">,</span>
-    <span class="s2">"content-md5"</span><span class="p">:</span> <span class="s2">"64b4aa1d9e883e0e18a920dabf8f50db"</span><span class="p">,</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">settings</span><span class="p">).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
-<span class="p">});</span>
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"orders"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">36</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">16.5</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"author_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"First order"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"acceptable"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"quality_level"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"processing_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"word_count_start"</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"word_count_end"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-03-31T06:11:16.604Z"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-03-31T06:11:16.622Z"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"category_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"seo_words"</span><span class="p">:</span><span class="w"> </span><span class="s2">"camel"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"valued_text"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"status_comments"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"ip_address"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"want_title"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"author_title"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre>
-<p>This endpoint retrieves user&rsquo;s orders.</p>
-
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code class="prettyprint">GET https://pronoun-io.herokuapp.com/api/v1/orders</code></p>
-
-<h2 id="create-an-order">Create an order</h2>
-<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'uri'</span>
-<span class="nb">require</span> <span class="s1">'net/http'</span>
-
-<span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"https://pronoun-io.herokuapp.com/api/v1/orders"</span><span class="p">)</span>
-
-<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
-<span class="n">http</span><span class="p">.</span><span class="nf">use_ssl</span> <span class="o">=</span> <span class="kp">true</span>
-<span class="n">http</span><span class="p">.</span><span class="nf">verify_mode</span> <span class="o">=</span> <span class="no">OpenSSL</span><span class="o">::</span><span class="no">SSL</span><span class="o">::</span><span class="no">VERIFY_NONE</span>
-
-<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Post</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"access_id"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'7493ffbeb7a8d221f6d15987945d8228'</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"time"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'2017'</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"content-md5"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'64b4aa1d9e883e0e18a920dabf8f50db'</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"content-type"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'application/x-www-form-urlencoded'</span>
-<span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="s2">"category=Your_category&amp;description=Your_descriptin&amp;title=Your_title&amp;quality_level=Quality_level&amp;processing_time=Days&amp;word_count_start=Min_words&amp;word_count_end=Max_words&amp;seo_words=Comma separated words"</span>
-
-<span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
-<span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
-
-<span class="n">url</span> <span class="o">=</span> <span class="s">"https://pronoun-io.herokuapp.com/api/v1/orders"</span>
-
-<span class="n">payload</span> <span class="o">=</span> <span class="s">"category=Your_category&amp;description=Your_descriptin&amp;title=Your_title&amp;quality_level=Quality_level&amp;processing_time=Days&amp;word_count_start=Min_words&amp;word_count_end=Max_words&amp;seo_words=Comma separated words"</span>
-<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">'access_id'</span><span class="p">:</span> <span class="s">"7493ffbeb7a8d221f6d15987945d8228"</span><span class="p">,</span>
-    <span class="s">'time'</span><span class="p">:</span> <span class="s">"2017"</span><span class="p">,</span>
-    <span class="s">'content-md5'</span><span class="p">:</span> <span class="s">"64b4aa1d9e883e0e18a920dabf8f50db"</span><span class="p">,</span>
-    <span class="s">'content-type'</span><span class="p">:</span> <span class="s">"application/x-www-form-urlencoded"</span><span class="p">,</span>
-    <span class="p">}</span>
-
-<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl -X POST -H <span class="s2">"ACCESS_ID: 7493ffbeb7a8d221f6d15987945d8228"</span> -H <span class="s2">"Time: 2017"</span> -H <span class="s2">"CONTENT-MD5: 64b4aa1d9e883e0e18a920dabf8f50db"</span> -H <span class="s2">"Content-Type: application/x-www-form-urlencoded"</span> -d <span class="s1">'category=industry&amp;description=abc&amp;title=test&amp;quality_level=1&amp;processing_time=7&amp;word_count_start=25&amp;word_count_end=50&amp;seo_words=abc%2Cabc'</span> <span class="s2">"https://pronoun-io.herokuapp.com/api/v1/orders"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s2">"async"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="s2">"crossDomain"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://pronoun-io.herokuapp.com/api/v1/orders"</span><span class="p">,</span>
-  <span class="s2">"method"</span><span class="p">:</span> <span class="s2">"POST"</span><span class="p">,</span>
-  <span class="s2">"headers"</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s2">"access_id"</span><span class="p">:</span> <span class="s2">"7493ffbeb7a8d221f6d15987945d8228"</span><span class="p">,</span>
-    <span class="s2">"time"</span><span class="p">:</span> <span class="s2">"2017"</span><span class="p">,</span>
-    <span class="s2">"content-md5"</span><span class="p">:</span> <span class="s2">"64b4aa1d9e883e0e18a920dabf8f50db"</span><span class="p">,</span>
-    <span class="s2">"content-type"</span><span class="p">:</span> <span class="s2">"application/x-www-form-urlencoded"</span><span class="p">,</span>
-  <span class="p">},</span>
-  <span class="s2">"data"</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s2">"category"</span><span class="p">:</span> <span class="s2">"industry"</span><span class="p">,</span>
-    <span class="s2">"description"</span><span class="p">:</span> <span class="s2">"abc"</span><span class="p">,</span>
-    <span class="s2">"title"</span><span class="p">:</span> <span class="s2">"test"</span><span class="p">,</span>
-    <span class="s2">"quality_level"</span><span class="p">:</span> <span class="s2">"1"</span><span class="p">,</span>
-    <span class="s2">"processing_time"</span><span class="p">:</span> <span class="s2">"7"</span><span class="p">,</span>
-    <span class="s2">"word_count_start"</span><span class="p">:</span> <span class="s2">"25"</span><span class="p">,</span>
-    <span class="s2">"word_count_end"</span><span class="p">:</span> <span class="s2">"50"</span><span class="p">,</span>
-    <span class="s2">"seo_words"</span><span class="p">:</span> <span class="s2">"abc,abc"</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">settings</span><span class="p">).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
-<span class="p">});</span>
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Open Order created successfully."</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre>
-<p>This endpoint retrieves user&rsquo;s orders.</p>
-
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code class="prettyprint">POST https://pronoun-io.herokuapp.com/api/v1/orders</code></p>
-
-<h3 id="query-parameters">Query Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>category</td>
-<td>The category to which the order belongs</td>
-</tr>
-<tr>
-<td>description</td>
-<td>Description of the order</td>
-</tr>
-<tr>
-<td>title</td>
-<td>Title for the work</td>
-</tr>
-<tr>
-<td>quality_level</td>
-<td>Quality level of the author(2star,3star)</td>
-</tr>
-<tr>
-<td>processing_time</td>
-<td>Processing time in days</td>
-</tr>
-<tr>
-<td>word_count_start</td>
-<td>Minimum number of words</td>
-</tr>
-<tr>
-<td>word_count_end</td>
-<td>Maximum number of words</td>
-</tr>
-<tr>
-<td>seo_words</td>
-<td>SEO words</td>
-</tr>
-</tbody></table>
-
-<h2 id="get-state-of-an-order">Get state of an order</h2>
-<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'uri'</span>
-<span class="nb">require</span> <span class="s1">'net/http'</span>
-
-<span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"https://pronoun-io.herokuapp.com/api/v1/orders/:id/get_state"</span><span class="p">)</span>
-
-<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
-<span class="n">http</span><span class="p">.</span><span class="nf">use_ssl</span> <span class="o">=</span> <span class="kp">true</span>
-<span class="n">http</span><span class="p">.</span><span class="nf">verify_mode</span> <span class="o">=</span> <span class="no">OpenSSL</span><span class="o">::</span><span class="no">SSL</span><span class="o">::</span><span class="no">VERIFY_NONE</span>
-
-<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"access_id"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'7493ffbeb7a8d221f6d15987945d8228'</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"time"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'2017'</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"content-md5"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'64b4aa1d9e883e0e18a920dabf8f50db'</span>
-
-<span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
-<span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
-
-<span class="n">url</span> <span class="o">=</span> <span class="s">"https://pronoun-io.herokuapp.com/api/v1/orders/:id/get_state"</span>
-
-<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">'access_id'</span><span class="p">:</span> <span class="s">"7493ffbeb7a8d221f6d15987945d8228"</span><span class="p">,</span>
-    <span class="s">'time'</span><span class="p">:</span> <span class="s">"2017"</span><span class="p">,</span>
-    <span class="s">'content-md5'</span><span class="p">:</span> <span class="s">"64b4aa1d9e883e0e18a920dabf8f50db"</span><span class="p">,</span>
-    <span class="p">}</span>
-
-<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl -X GET -H <span class="s2">"ACCESS_ID: 7493ffbeb7a8d221f6d15987945d8228"</span> -H <span class="s2">"Time: 2017"</span> -H <span class="s2">"CONTENT-MD5: 64b4aa1d9e883e0e18a920dabf8f50db"</span> <span class="s2">"https://pronoun-io.herokuapp.com/api/v1/orders/:id/get_state"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s2">"async"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="s2">"crossDomain"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://pronoun-io.herokuapp.com/api/v1/orders/33/get_state"</span><span class="p">,</span>
-  <span class="s2">"method"</span><span class="p">:</span> <span class="s2">"GET"</span><span class="p">,</span>
-  <span class="s2">"headers"</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s2">"access_id"</span><span class="p">:</span> <span class="s2">"7493ffbeb7a8d221f6d15987945d8228"</span><span class="p">,</span>
-    <span class="s2">"time"</span><span class="p">:</span> <span class="s2">"2017"</span><span class="p">,</span>
-    <span class="s2">"content-md5"</span><span class="p">:</span> <span class="s2">"64b4aa1d9e883e0e18a920dabf8f50db"</span><span class="p">,</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">settings</span><span class="p">).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
-<span class="p">});</span>
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"close"</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre>
-<p>This endpoint retrieves status of the specified order.</p>
-
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code class="prettyprint">GET https://pronoun-io.herokuapp.com/api/v1/orders/:id/get_state</code></p>
+<p><code class="prettyprint">GET https://alquran.com/api/v1/get_parah/:parah_no</code></p>
 
 <h3 id="url-parameters">URL Parameters</h3>
 
@@ -737,142 +285,27 @@ You must replace the values of above <code>variables</code> with your personal A
 </tr>
 </thead><tbody>
 <tr>
-<td>:id</td>
-<td>The ID of the order in question</td>
+<td>:parah_no</td>
+<td>Parah number required</td>
 </tr>
 </tbody></table>
 
-<h2 id="get-order-cost">Get order cost</h2>
-<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'uri'</span>
-<span class="nb">require</span> <span class="s1">'net/http'</span>
-
-<span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"https://pronoun-io.herokuapp.com/api/v1/orders/get_costs"</span><span class="p">)</span>
-
-<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
-<span class="n">http</span><span class="p">.</span><span class="nf">use_ssl</span> <span class="o">=</span> <span class="kp">true</span>
-<span class="n">http</span><span class="p">.</span><span class="nf">verify_mode</span> <span class="o">=</span> <span class="no">OpenSSL</span><span class="o">::</span><span class="no">SSL</span><span class="o">::</span><span class="no">VERIFY_NONE</span>
-
-<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"access_id"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'7493ffbeb7a8d221f6d15987945d8228'</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"time"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'2017'</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"content-md5"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'64b4aa1d9e883e0e18a920dabf8f50db'</span>
-
-<span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
-<span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
-
-<span class="n">url</span> <span class="o">=</span> <span class="s">"https://pronoun-io.herokuapp.com/api/v1/orders/get_costs"</span>
-
-<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">'access_id'</span><span class="p">:</span> <span class="s">"7493ffbeb7a8d221f6d15987945d8228"</span><span class="p">,</span>
-    <span class="s">'time'</span><span class="p">:</span> <span class="s">"2017"</span><span class="p">,</span>
-    <span class="s">'content-md5'</span><span class="p">:</span> <span class="s">"64b4aa1d9e883e0e18a920dabf8f50db"</span><span class="p">,</span>
-    <span class="p">}</span>
-
-<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl -X GET -H <span class="s2">"ACCESS_ID: 7493ffbeb7a8d221f6d15987945d8228"</span> -H <span class="s2">"Time: 2017"</span> -H <span class="s2">"CONTENT-MD5: 64b4aa1d9e883e0e18a920dabf8f50db"</span> <span class="s2">"https://pronoun-io.herokuapp.com/api/v1/orders/get_costs"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s2">"async"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="s2">"crossDomain"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://pronoun-io.herokuapp.com/api/v1/orders/get_costs"</span><span class="p">,</span>
-  <span class="s2">"method"</span><span class="p">:</span> <span class="s2">"GET"</span><span class="p">,</span>
-  <span class="s2">"headers"</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s2">"access_id"</span><span class="p">:</span> <span class="s2">"7493ffbeb7a8d221f6d15987945d8228"</span><span class="p">,</span>
-    <span class="s2">"time"</span><span class="p">:</span> <span class="s2">"2017"</span><span class="p">,</span>
-    <span class="s2">"content-md5"</span><span class="p">:</span> <span class="s2">"64b4aa1d9e883e0e18a920dabf8f50db"</span><span class="p">,</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">settings</span><span class="p">).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
-<span class="p">});</span>
-</code></pre>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>The response returns from the endpoint will be in JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"rates_per_word"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"star_2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.22"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"star_3"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.33"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"star_4"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.44"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"star_5"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.55"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+    </span><span class="s2">"credit"</span><span class="p">:</span><span class="w"> </span><span class="mf">183.5</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves rates per word for different quality authors.</p>
+<h2 id="get-parah-editions">Get Parah Editions</h2>
+
+<p>This endpoint retrieves the editions of parah.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://pronoun-io.herokuapp.com/api/v1/orders/get_costs</code></p>
-
-<h2 id="delete-an-order">Delete an order</h2>
-<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'uri'</span>
-<span class="nb">require</span> <span class="s1">'net/http'</span>
-
-<span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"https://pronoun-io.herokuapp.com/api/v1/orders/:id/delete_order"</span><span class="p">)</span>
-
-<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
-<span class="n">http</span><span class="p">.</span><span class="nf">use_ssl</span> <span class="o">=</span> <span class="kp">true</span>
-<span class="n">http</span><span class="p">.</span><span class="nf">verify_mode</span> <span class="o">=</span> <span class="no">OpenSSL</span><span class="o">::</span><span class="no">SSL</span><span class="o">::</span><span class="no">VERIFY_NONE</span>
-
-<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Delete</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"access_id"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'7493ffbeb7a8d221f6d15987945d8228'</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"time"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'2017'</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"content-md5"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'64b4aa1d9e883e0e18a920dabf8f50db'</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"content-type"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'application/x-www-form-urlencoded'</span>
-
-<span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
-<span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
-
-<span class="n">url</span> <span class="o">=</span> <span class="s">"https://pronoun-io.herokuapp.com/api/v1/orders/:id/delete_order"</span>
-
-<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">'access_id'</span><span class="p">:</span> <span class="s">"7493ffbeb7a8d221f6d15987945d8228"</span><span class="p">,</span>
-    <span class="s">'time'</span><span class="p">:</span> <span class="s">"2017"</span><span class="p">,</span>
-    <span class="s">'content-md5'</span><span class="p">:</span> <span class="s">"64b4aa1d9e883e0e18a920dabf8f50db"</span><span class="p">,</span>
-    <span class="s">'content-type'</span><span class="p">:</span> <span class="s">"application/x-www-form-urlencoded"</span>
-    <span class="p">}</span>
-
-<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">"DELETE"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl -X DELETE -H <span class="s2">"ACCESS_ID: 7493ffbeb7a8d221f6d15987945d8228"</span> -H <span class="s2">"Time: 2017"</span> -H <span class="s2">"CONTENT-MD5: 64b4aa1d9e883e0e18a920dabf8f50db"</span> -H <span class="s2">"Content-Type: application/x-www-form-urlencoded"</span> -d <span class="s1">''</span> <span class="s2">"https://pronoun-io.herokuapp.com/api/v1/orders/:id/delete_order"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s2">"async"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="s2">"crossDomain"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://pronoun-io.herokuapp.com/api/v1/orders/:id/delete_order"</span><span class="p">,</span>
-  <span class="s2">"method"</span><span class="p">:</span> <span class="s2">"DELETE"</span><span class="p">,</span>
-  <span class="s2">"headers"</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s2">"access_id"</span><span class="p">:</span> <span class="s2">"7493ffbeb7a8d221f6d15987945d8228"</span><span class="p">,</span>
-    <span class="s2">"time"</span><span class="p">:</span> <span class="s2">"2017"</span><span class="p">,</span>
-    <span class="s2">"content-md5"</span><span class="p">:</span> <span class="s2">"64b4aa1d9e883e0e18a920dabf8f50db"</span><span class="p">,</span>
-    <span class="s2">"content-type"</span><span class="p">:</span> <span class="s2">"application/x-www-form-urlencoded"</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">settings</span><span class="p">).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
-<span class="p">});</span>
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"order_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">33</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre>
-<p>This endpoint deletes the specified order.</p>
-
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code class="prettyprint">DELETE https://pronoun-io.herokuapp.com/api/v1/orders/:id/delete_order</code></p>
+<p><code class="prettyprint">GET https://alquran.com/api/v1/get_parah_editions/:parah_no</code></p>
 
 <h3 id="url-parameters">URL Parameters</h3>
 
@@ -883,74 +316,64 @@ You must replace the values of above <code>variables</code> with your personal A
 </tr>
 </thead><tbody>
 <tr>
-<td>:id</td>
-<td>The ID of the order in question</td>
+<td>:parah_no</td>
+<td>Parah number required</td>
 </tr>
 </tbody></table>
 
-<h2 id="get-copyscape-result">Get Copyscape result</h2>
-<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'uri'</span>
-<span class="nb">require</span> <span class="s1">'net/http'</span>
-
-<span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"https://pronoun-io.herokuapp.com/api/v1/orders/:id/copyscape_result"</span><span class="p">)</span>
-
-<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
-<span class="n">http</span><span class="p">.</span><span class="nf">use_ssl</span> <span class="o">=</span> <span class="kp">true</span>
-<span class="n">http</span><span class="p">.</span><span class="nf">verify_mode</span> <span class="o">=</span> <span class="no">OpenSSL</span><span class="o">::</span><span class="no">SSL</span><span class="o">::</span><span class="no">VERIFY_NONE</span>
-
-<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"access_id"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'7493ffbeb7a8d221f6d15987945d8228'</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"time"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'2017'</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"content-md5"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'64b4aa1d9e883e0e18a920dabf8f50db'</span>
-
-<span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
-<span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
-
-<span class="n">url</span> <span class="o">=</span> <span class="s">"https://pronoun-io.herokuapp.com/api/v1/orders/:id/copyscape_result"</span>
-
-<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">'access_id'</span><span class="p">:</span> <span class="s">"7493ffbeb7a8d221f6d15987945d8228"</span><span class="p">,</span>
-    <span class="s">'time'</span><span class="p">:</span> <span class="s">"2017"</span><span class="p">,</span>
-    <span class="s">'content-md5'</span><span class="p">:</span> <span class="s">"64b4aa1d9e883e0e18a920dabf8f50db"</span><span class="p">,</span>
-    <span class="p">}</span>
-
-<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl -X GET -H <span class="s2">"ACCESS_ID: 7493ffbeb7a8d221f6d15987945d8228"</span> -H <span class="s2">"Time: 2017"</span> -H <span class="s2">"CONTENT-MD5: 64b4aa1d9e883e0e18a920dabf8f50db"</span> <span class="s2">"https://pronoun-io.herokuapp.com/api/v1/orders/:id/copyscape_result"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s2">"async"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="s2">"crossDomain"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://pronoun-io.herokuapp.com/api/v1/orders/:id/copyscape_result"</span><span class="p">,</span>
-  <span class="s2">"method"</span><span class="p">:</span> <span class="s2">"GET"</span><span class="p">,</span>
-  <span class="s2">"headers"</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s2">"access_id"</span><span class="p">:</span> <span class="s2">"7493ffbeb7a8d221f6d15987945d8228"</span><span class="p">,</span>
-    <span class="s2">"time"</span><span class="p">:</span> <span class="s2">"2017"</span><span class="p">,</span>
-    <span class="s2">"content-md5"</span><span class="p">:</span> <span class="s2">"64b4aa1d9e883e0e18a920dabf8f50db"</span><span class="p">,</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">settings</span><span class="p">).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
-<span class="p">});</span>
-</code></pre>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>The response returns from the endpoint will be in JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="s2">"Minimum 15 words required."</span><span class="w">
-    </span><span class="p">]</span><span class="w">
+    </span><span class="s2">"credit"</span><span class="p">:</span><span class="w"> </span><span class="mf">183.5</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves copyscape results for the specified order.</p>
+<h2 id="get-parahs-with-sajood">Get Parahs with Sajood</h2>
+
+<p>This endpoint retrieves all the parahs in arabic which requires sajda.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://pronoun-io.herokuapp.com/api/v1/orders/:id/copyscape_result</code></p>
+<p><code class="prettyprint">GET https://alquran.com/api/v1/get_sajood_parahs</code></p>
+
+<blockquote>
+<p>The response returns from the endpoint will be in JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"credit"</span><span class="p">:</span><span class="w"> </span><span class="mf">183.5</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<h1 id="surahs">SURAHS</h1>
+
+<h2 id="get-all-surahs">Get All Surahs</h2>
+
+<p>This endpoint retrieves all surahs in their respective orders.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET https://alquran.com/api/v1/get_surahs</code></p>
+
+<blockquote>
+<p>The response returns from the endpoint will be in JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"credit"</span><span class="p">:</span><span class="w"> </span><span class="mf">183.5</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<h2 id="get-surah">Get Surah</h2>
+
+<p>This endpoint retrieves a particular surah in arabic.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET https://alquran.com/api/v1/get_surah/:surah_no</code> <br>
+<code class="prettyprint">GET https://alquran.com/api/v1/get_surah/:surah_name</code></p>
 
 <h3 id="url-parameters">URL Parameters</h3>
 
@@ -961,72 +384,32 @@ You must replace the values of above <code>variables</code> with your personal A
 </tr>
 </thead><tbody>
 <tr>
-<td>:id</td>
-<td>The ID of the order in question</td>
+<td>:surah_no</td>
+<td>Surah number required</td>
+</tr>
+<tr>
+<td>:surah_name</td>
+<td>Surah name required</td>
 </tr>
 </tbody></table>
 
-<h2 id="preview-valued-text">Preview Valued Text</h2>
-<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'uri'</span>
-<span class="nb">require</span> <span class="s1">'net/http'</span>
-
-<span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"https://pronoun-io.herokuapp.com/api/v1/orders/:id/text_preview"</span><span class="p">)</span>
-
-<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
-<span class="n">http</span><span class="p">.</span><span class="nf">use_ssl</span> <span class="o">=</span> <span class="kp">true</span>
-<span class="n">http</span><span class="p">.</span><span class="nf">verify_mode</span> <span class="o">=</span> <span class="no">OpenSSL</span><span class="o">::</span><span class="no">SSL</span><span class="o">::</span><span class="no">VERIFY_NONE</span>
-
-<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"access_id"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'7493ffbeb7a8d221f6d15987945d8228'</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"time"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'2017'</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"content-md5"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'64b4aa1d9e883e0e18a920dabf8f50db'</span>
-
-<span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
-<span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
-
-<span class="n">url</span> <span class="o">=</span> <span class="s">"https://pronoun-io.herokuapp.com/api/v1/orders/:id/text_preview"</span>
-
-<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">'access_id'</span><span class="p">:</span> <span class="s">"7493ffbeb7a8d221f6d15987945d8228"</span><span class="p">,</span>
-    <span class="s">'time'</span><span class="p">:</span> <span class="s">"2017"</span><span class="p">,</span>
-    <span class="s">'content-md5'</span><span class="p">:</span> <span class="s">"64b4aa1d9e883e0e18a920dabf8f50db"</span><span class="p">,</span>
-    <span class="p">}</span>
-
-<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl -X GET -H <span class="s2">"ACCESS_ID: 7493ffbeb7a8d221f6d15987945d8228"</span> -H <span class="s2">"Time: 2017"</span> -H <span class="s2">"CONTENT-MD5: 64b4aa1d9e883e0e18a920dabf8f50db"</span> <span class="s2">"https://pronoun-io.herokuapp.com/api/v1/orders/:id/text_preview"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s2">"async"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="s2">"crossDomain"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://pronoun-io.herokuapp.com/api/v1/orders/:id/text_preview"</span><span class="p">,</span>
-  <span class="s2">"method"</span><span class="p">:</span> <span class="s2">"GET"</span><span class="p">,</span>
-  <span class="s2">"headers"</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s2">"access_id"</span><span class="p">:</span> <span class="s2">"7493ffbeb7a8d221f6d15987945d8228"</span><span class="p">,</span>
-    <span class="s2">"time"</span><span class="p">:</span> <span class="s2">"2017"</span><span class="p">,</span>
-    <span class="s2">"content-md5"</span><span class="p">:</span> <span class="s2">"64b4aa1d9e883e0e18a920dabf8f50db"</span><span class="p">,</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">settings</span><span class="p">).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
-<span class="p">});</span>
-</code></pre>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>The response returns from the endpoint will be in JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hello Paul really likes pickles in his mouth Paul also puts a little lumpy fudge in his mouth hello Paul really likes pickles in his mouth Paul also puts a little lumpy fudge in his mouth hello Paul really likes pickles in his mouth Paul also puts a little lumpy fudge in his mouth hello Paul really likes pickles in his mouth Paul also puts a little lumpy fudge in his mouth "</span><span class="w">
+    </span><span class="s2">"credit"</span><span class="p">:</span><span class="w"> </span><span class="mf">183.5</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves text preview for the order.</p>
+<h2 id="get-surah-editions">Get Surah Editions</h2>
+
+<p>This endpoint retrieves a particular surah&rsquo;s editions.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://pronoun-io.herokuapp.com/api/v1/orders/:id/text_preview</code></p>
+<p><code class="prettyprint">GET https://alquran.com/api/v1/get_surah_editions/:surah_no</code> <br>
+<code class="prettyprint">GET https://alquran.com/api/v1/get_surah_editions/:surah_name</code></p>
 
 <h3 id="url-parameters">URL Parameters</h3>
 
@@ -1037,80 +420,82 @@ You must replace the values of above <code>variables</code> with your personal A
 </tr>
 </thead><tbody>
 <tr>
-<td>:id</td>
-<td>The ID of the order in question</td>
+<td>:surah_no</td>
+<td>Surah number required</td>
+</tr>
+<tr>
+<td>:surah_name</td>
+<td>Surah name required</td>
 </tr>
 </tbody></table>
 
-<h2 id="set-seo-words">Set SEO words</h2>
-<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'uri'</span>
-<span class="nb">require</span> <span class="s1">'net/http'</span>
-
-<span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"https://pronoun-io.herokuapp.com/api/v1/orders/:id/set_seo_words"</span><span class="p">)</span>
-
-<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
-<span class="n">http</span><span class="p">.</span><span class="nf">use_ssl</span> <span class="o">=</span> <span class="kp">true</span>
-<span class="n">http</span><span class="p">.</span><span class="nf">verify_mode</span> <span class="o">=</span> <span class="no">OpenSSL</span><span class="o">::</span><span class="no">SSL</span><span class="o">::</span><span class="no">VERIFY_NONE</span>
-
-<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Post</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"access_id"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'7493ffbeb7a8d221f6d15987945d8228'</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"time"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'2017'</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"content-md5"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'64b4aa1d9e883e0e18a920dabf8f50db'</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"content-type"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'application/x-www-form-urlencoded'</span>
-<span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="s2">"seo_words=Your_seo_words(comma seperated)"</span>
-
-<span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
-<span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
-
-<span class="n">url</span> <span class="o">=</span> <span class="s">"https://pronoun-io.herokuapp.com/api/v1/orders/:id/set_seo_words"</span>
-
-<span class="n">payload</span> <span class="o">=</span> <span class="s">"seo_words=Your_seo_words(comma seperated)"</span>
-<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">'access_id'</span><span class="p">:</span> <span class="s">"7493ffbeb7a8d221f6d15987945d8228"</span><span class="p">,</span>
-    <span class="s">'time'</span><span class="p">:</span> <span class="s">"2017"</span><span class="p">,</span>
-    <span class="s">'content-md5'</span><span class="p">:</span> <span class="s">"64b4aa1d9e883e0e18a920dabf8f50db"</span><span class="p">,</span>
-    <span class="s">'content-type'</span><span class="p">:</span> <span class="s">"application/x-www-form-urlencoded"</span>
-    <span class="p">}</span>
-
-<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl -X POST -H <span class="s2">"ACCESS_ID: 7493ffbeb7a8d221f6d15987945d8228"</span> -H <span class="s2">"Time: 2017"</span> -H <span class="s2">"CONTENT-MD5: 64b4aa1d9e883e0e18a920dabf8f50db"</span> -H <span class="s2">"Content-Type: application/x-www-form-urlencoded"</span> -d <span class="s1">'seo_words=Your_seo_words(comma seperated)'</span> <span class="s2">"https://pronoun-io.herokuapp.com/api/v1/orders/34/set_seo_words"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s2">"async"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="s2">"crossDomain"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://pronoun-io.herokuapp.com/api/v1/orders/:id/set_seo_words"</span><span class="p">,</span>
-  <span class="s2">"method"</span><span class="p">:</span> <span class="s2">"POST"</span><span class="p">,</span>
-  <span class="s2">"headers"</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s2">"access_id"</span><span class="p">:</span> <span class="s2">"7493ffbeb7a8d221f6d15987945d8228"</span><span class="p">,</span>
-    <span class="s2">"time"</span><span class="p">:</span> <span class="s2">"2017"</span><span class="p">,</span>
-    <span class="s2">"content-md5"</span><span class="p">:</span> <span class="s2">"64b4aa1d9e883e0e18a920dabf8f50db"</span><span class="p">,</span>
-    <span class="s2">"content-type"</span><span class="p">:</span> <span class="s2">"application/x-www-form-urlencoded"</span>
-  <span class="p">},</span>
-  <span class="s2">"data"</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s2">"seo_words"</span><span class="p">:</span> <span class="s2">"Your_seo_words(comma seperated)"</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">settings</span><span class="p">).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
-<span class="p">});</span>
-</code></pre>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>The response returns from the endpoint will be in JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"seo_words"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc"</span><span class="w">
+    </span><span class="s2">"credit"</span><span class="p">:</span><span class="w"> </span><span class="mf">183.5</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
-<p>This endpoint sets SEO words for the order.</p>
+<h2 id="get-mecca-surahs">Get Mecca Surahs</h2>
+
+<p>This endpoint retrieves all mecca surahs in arabic.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">POST https://pronoun-io.herokuapp.com/api/v1/orders/:id/set_seo_words</code></p>
+<p><code class="prettyprint">GET https://alquran.com/api/v1/get_mecca_surahs</code></p>
+
+<blockquote>
+<p>The response returns from the endpoint will be in JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"credit"</span><span class="p">:</span><span class="w"> </span><span class="mf">183.5</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<h2 id="get-madni-surahs">Get Madni Surahs</h2>
+
+<p>This endpoint retrieves all madni surahs in arabic.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET https://alquran.com/api/v1/get_madni_surahs</code></p>
+
+<blockquote>
+<p>The response returns from the endpoint will be in JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"credit"</span><span class="p">:</span><span class="w"> </span><span class="mf">183.5</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<h2 id="get-all-surahs-with-sajood">Get All Surahs with Sajood</h2>
+
+<p>This endpoint retrieves all surahs in arabic which requires sajda.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET https://alquran.com/api/v1/get_sajood_surahs</code></p>
+
+<blockquote>
+<p>The response returns from the endpoint will be in JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"credit"</span><span class="p">:</span><span class="w"> </span><span class="mf">183.5</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<h2 id="get-particular-mecca-surah">Get Particular Mecca Surah</h2>
+
+<p>This endpoint retrieves a particular surah from mecca surahs.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET https://alquran.com/api/v1/get_mecca_surah/:surah_no</code></p>
 
 <h3 id="url-parameters">URL Parameters</h3>
 
@@ -1121,94 +506,27 @@ You must replace the values of above <code>variables</code> with your personal A
 </tr>
 </thead><tbody>
 <tr>
-<td>:id</td>
-<td>The ID of the order in question</td>
+<td>:surah_no</td>
+<td>Surah number required</td>
 </tr>
 </tbody></table>
 
-<h3 id="query-parameters">Query Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>seo_words</td>
-<td>Comma separated SEO tags</td>
-</tr>
-</tbody></table>
-
-<h2 id="set-duration-for-an-order">Set Duration for an order</h2>
-<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'uri'</span>
-<span class="nb">require</span> <span class="s1">'net/http'</span>
-
-<span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"https://pronoun-io.herokuapp.com/api/v1/orders/:id/change_duration"</span><span class="p">)</span>
-
-<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
-<span class="n">http</span><span class="p">.</span><span class="nf">use_ssl</span> <span class="o">=</span> <span class="kp">true</span>
-<span class="n">http</span><span class="p">.</span><span class="nf">verify_mode</span> <span class="o">=</span> <span class="no">OpenSSL</span><span class="o">::</span><span class="no">SSL</span><span class="o">::</span><span class="no">VERIFY_NONE</span>
-
-<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Post</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"access_id"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'7493ffbeb7a8d221f6d15987945d8228'</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"time"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'2017'</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"content-md5"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'64b4aa1d9e883e0e18a920dabf8f50db'</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"content-type"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'application/x-www-form-urlencoded'</span>
-<span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="s2">"processing_time=Processing_time_in_days"</span>
-
-<span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
-<span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
-
-<span class="n">url</span> <span class="o">=</span> <span class="s">"https://pronoun-io.herokuapp.com/api/v1/orders/:id/change_duration"</span>
-
-<span class="n">payload</span> <span class="o">=</span> <span class="s">"processing_time=Processing_time_in_days"</span>
-<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">'access_id'</span><span class="p">:</span> <span class="s">"7493ffbeb7a8d221f6d15987945d8228"</span><span class="p">,</span>
-    <span class="s">'time'</span><span class="p">:</span> <span class="s">"2017"</span><span class="p">,</span>
-    <span class="s">'content-md5'</span><span class="p">:</span> <span class="s">"64b4aa1d9e883e0e18a920dabf8f50db"</span><span class="p">,</span>
-    <span class="s">'content-type'</span><span class="p">:</span> <span class="s">"application/x-www-form-urlencoded"</span>
-    <span class="p">}</span>
-
-<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl -X POST -H <span class="s2">"ACCESS_ID: 7493ffbeb7a8d221f6d15987945d8228"</span> -H <span class="s2">"Time: 2017"</span> -H <span class="s2">"CONTENT-MD5: 64b4aa1d9e883e0e18a920dabf8f50db"</span> -H <span class="s2">"Content-Type: application/x-www-form-urlencoded"</span> -d <span class="s1">'processing_time=Processing_time_in_days'</span> <span class="s2">"https://pronoun-io.herokuapp.com/api/v1/orders/34/change_duration"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s2">"async"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="s2">"crossDomain"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://pronoun-io.herokuapp.com/api/v1/orders/:id/change_duration"</span><span class="p">,</span>
-  <span class="s2">"method"</span><span class="p">:</span> <span class="s2">"POST"</span><span class="p">,</span>
-  <span class="s2">"headers"</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s2">"access_id"</span><span class="p">:</span> <span class="s2">"7493ffbeb7a8d221f6d15987945d8228"</span><span class="p">,</span>
-    <span class="s2">"time"</span><span class="p">:</span> <span class="s2">"2017"</span><span class="p">,</span>
-    <span class="s2">"content-md5"</span><span class="p">:</span> <span class="s2">"64b4aa1d9e883e0e18a920dabf8f50db"</span><span class="p">,</span>
-    <span class="s2">"content-type"</span><span class="p">:</span> <span class="s2">"application/x-www-form-urlencoded"</span>
-  <span class="p">},</span>
-  <span class="s2">"data"</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s2">"processing_time"</span><span class="p">:</span> <span class="s2">"Processing_time_in_days"</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">settings</span><span class="p">).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
-<span class="p">});</span>
-</code></pre>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>The response returns from the endpoint will be in JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="w">
+    </span><span class="s2">"credit"</span><span class="p">:</span><span class="w"> </span><span class="mf">183.5</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
-<p>This endpoint sets SEO words for the order.</p>
+<h2 id="get-particular-madni-surah">Get Particular Madni Surah</h2>
+
+<p>This endpoint retrieves a particular surah from madni surahs.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">POST https://pronoun-io.herokuapp.com/api/v1/orders/:id/change_duration</code></p>
+<p><code class="prettyprint">GET https://alquran.com/api/v1/get_madni_surah/:surah_no</code></p>
 
 <h3 id="url-parameters">URL Parameters</h3>
 
@@ -1219,95 +537,64 @@ You must replace the values of above <code>variables</code> with your personal A
 </tr>
 </thead><tbody>
 <tr>
-<td>:id</td>
-<td>The ID of the order in question</td>
+<td>:surah_no</td>
+<td>Surah number required</td>
 </tr>
 </tbody></table>
 
-<h3 id="query-parameters">Query Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>duration</td>
-<td>The duration for completion of work in days</td>
-</tr>
-</tbody></table>
-
-<h2 id="change-word-count">Change word count</h2>
-<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'uri'</span>
-<span class="nb">require</span> <span class="s1">'net/http'</span>
-
-<span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"https://pronoun-io.herokuapp.com/api/v1/orders/:id/change_word_count"</span><span class="p">)</span>
-
-<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
-<span class="n">http</span><span class="p">.</span><span class="nf">use_ssl</span> <span class="o">=</span> <span class="kp">true</span>
-<span class="n">http</span><span class="p">.</span><span class="nf">verify_mode</span> <span class="o">=</span> <span class="no">OpenSSL</span><span class="o">::</span><span class="no">SSL</span><span class="o">::</span><span class="no">VERIFY_NONE</span>
-
-<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Post</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"access_id"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'7493ffbeb7a8d221f6d15987945d8228'</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"time"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'2017'</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"content-md5"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'64b4aa1d9e883e0e18a920dabf8f50db'</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"content-type"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'application/x-www-form-urlencoded'</span>
-<span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="s2">"word_count_start=Min_words&amp;word_count_end=Max_words"</span>
-
-<span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
-<span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
-
-<span class="n">url</span> <span class="o">=</span> <span class="s">"https://pronoun-io.herokuapp.com/api/v1/orders/:id/change_word_count"</span>
-
-<span class="n">payload</span> <span class="o">=</span> <span class="s">"word_count_start=Min_words&amp;word_count_end=Max_words"</span>
-<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">'access_id'</span><span class="p">:</span> <span class="s">"7493ffbeb7a8d221f6d15987945d8228"</span><span class="p">,</span>
-    <span class="s">'time'</span><span class="p">:</span> <span class="s">"2017"</span><span class="p">,</span>
-    <span class="s">'content-md5'</span><span class="p">:</span> <span class="s">"64b4aa1d9e883e0e18a920dabf8f50db"</span><span class="p">,</span>
-    <span class="s">'content-type'</span><span class="p">:</span> <span class="s">"application/x-www-form-urlencoded"</span>
-    <span class="p">}</span>
-
-<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl -X POST -H <span class="s2">"ACCESS_ID: 7493ffbeb7a8d221f6d15987945d8228"</span> -H <span class="s2">"Time: 2017"</span> -H <span class="s2">"CONTENT-MD5: 64b4aa1d9e883e0e18a920dabf8f50db"</span> -H <span class="s2">"Content-Type: application/x-www-form-urlencoded"</span> -d <span class="s1">'word_count_start=16&amp;word_count_end=25'</span> <span class="s2">"https://pronoun-io.herokuapp.com/api/v1/orders/:id/change_word_count"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s2">"async"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="s2">"crossDomain"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://pronoun-io.herokuapp.com/api/v1/orders/:id/change_word_count"</span><span class="p">,</span>
-  <span class="s2">"method"</span><span class="p">:</span> <span class="s2">"POST"</span><span class="p">,</span>
-  <span class="s2">"headers"</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s2">"access_id"</span><span class="p">:</span> <span class="s2">"7493ffbeb7a8d221f6d15987945d8228"</span><span class="p">,</span>
-    <span class="s2">"time"</span><span class="p">:</span> <span class="s2">"2017"</span><span class="p">,</span>
-    <span class="s2">"content-md5"</span><span class="p">:</span> <span class="s2">"64b4aa1d9e883e0e18a920dabf8f50db"</span><span class="p">,</span>
-    <span class="s2">"content-type"</span><span class="p">:</span> <span class="s2">"application/x-www-form-urlencoded"</span>
-  <span class="p">},</span>
-  <span class="s2">"data"</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s2">"word_count_start"</span><span class="p">:</span> <span class="s2">"Min_words"</span><span class="p">,</span>
-    <span class="s2">"word_count_end"</span><span class="p">:</span> <span class="s2">"Max_words"</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">settings</span><span class="p">).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
-<span class="p">});</span>
-</code></pre>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>The response returns from the endpoint will be in JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"word_count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16-25"</span><span class="w">
+    </span><span class="s2">"credit"</span><span class="p">:</span><span class="w"> </span><span class="mf">183.5</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
-<p>This endpoint sets word limits for the order.</p>
+<h1 id="ayahs">AYAHS</h1>
+
+<h2 id="get-sajda-ayahs">Get Sajda Ayahs</h2>
+
+<p>This endpoint retrieves all ayahs which require sajda.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">POST https://pronoun-io.herokuapp.com/api/v1/orders/:id/change_word_count</code></p>
+<p><code class="prettyprint">GET https://alquran.com/api/v1/get_sajda_ayahs</code></p>
+
+<blockquote>
+<p>The response returns from the endpoint will be in JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"credit"</span><span class="p">:</span><span class="w"> </span><span class="mf">183.5</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<h2 id="get-ayahs">Get Ayahs</h2>
+
+<p>getAyas(surah_name, ayah_no, limit)
+This endpoint retrieves all ayahs depending upons params.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET https://alquran.com/api/v1/get_ayahs</code></p>
+
+<blockquote>
+<p>The response returns from the endpoint will be in JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"credit"</span><span class="p">:</span><span class="w"> </span><span class="mf">183.5</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<h2 id="get-ayah">Get Ayah</h2>
+
+<p>This endpoint retrieves ayah depending upons params.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET https://alquran.com/api/v1/get_ayahs/:surah_no/:ayah_no</code></p>
 
 <h3 id="url-parameters">URL Parameters</h3>
 
@@ -1318,12 +605,31 @@ You must replace the values of above <code>variables</code> with your personal A
 </tr>
 </thead><tbody>
 <tr>
-<td>:id</td>
-<td>The ID of the order in question</td>
+<td>:surah_no</td>
+<td>Surah number required</td>
+</tr>
+<tr>
+<td>:ayah_no</td>
+<td>Ayah number required</td>
 </tr>
 </tbody></table>
 
-<h3 id="query-parameters">Query Parameters</h3>
+<blockquote>
+<p>The response returns from the endpoint will be in JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"credit"</span><span class="p">:</span><span class="w"> </span><span class="mf">183.5</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<h2 id="get-ayah-editions">Get Ayah Editions</h2>
+
+<p>This endpoint retrieves all editions of required ayah(s) depending upons params.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET https://alquran.com/api/v1/get_ayahs_edition/:surah_no/:ayah_no</code></p>
 
 <table><thead>
 <tr>
@@ -1332,78 +638,33 @@ You must replace the values of above <code>variables</code> with your personal A
 </tr>
 </thead><tbody>
 <tr>
-<td>word_count_start</td>
-<td>Minimum number of words</td>
+<td>:surah_no</td>
+<td>Surah number required</td>
 </tr>
 <tr>
-<td>word_count_end</td>
-<td>Maximum number of words</td>
+<td>:ayah_no</td>
+<td>Ayah number required</td>
 </tr>
 </tbody></table>
 
-<h2 id="highlight-key-words">Highlight Key Words</h2>
-<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'uri'</span>
-<span class="nb">require</span> <span class="s1">'net/http'</span>
-
-<span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"https://pronoun-io.herokuapp.com/api/v1/orders/:id/highlight_keywords"</span><span class="p">)</span>
-
-<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
-<span class="n">http</span><span class="p">.</span><span class="nf">use_ssl</span> <span class="o">=</span> <span class="kp">true</span>
-<span class="n">http</span><span class="p">.</span><span class="nf">verify_mode</span> <span class="o">=</span> <span class="no">OpenSSL</span><span class="o">::</span><span class="no">SSL</span><span class="o">::</span><span class="no">VERIFY_NONE</span>
-
-<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"access_id"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'7493ffbeb7a8d221f6d15987945d8228'</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"time"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'2017'</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"content-md5"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'64b4aa1d9e883e0e18a920dabf8f50db'</span>
-
-<span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
-<span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
-
-<span class="n">url</span> <span class="o">=</span> <span class="s">"https://pronoun-io.herokuapp.com/api/v1/orders/:id/highlight_keywords"</span>
-
-<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">'access_id'</span><span class="p">:</span> <span class="s">"7493ffbeb7a8d221f6d15987945d8228"</span><span class="p">,</span>
-    <span class="s">'time'</span><span class="p">:</span> <span class="s">"2017"</span><span class="p">,</span>
-    <span class="s">'content-md5'</span><span class="p">:</span> <span class="s">"64b4aa1d9e883e0e18a920dabf8f50db"</span><span class="p">,</span>
-    <span class="p">}</span>
-
-<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl -X GET -H <span class="s2">"ACCESS_ID: 7493ffbeb7a8d221f6d15987945d8228"</span> -H <span class="s2">"Time: 2017"</span> -H <span class="s2">"CONTENT-MD5: 64b4aa1d9e883e0e18a920dabf8f50db"</span> <span class="s2">"https://pronoun-io.herokuapp.com/api/v1/orders/:id/highlight_keywords"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s2">"async"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="s2">"crossDomain"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://pronoun-io.herokuapp.com/api/v1/orders/:id/highlight_keywords"</span><span class="p">,</span>
-  <span class="s2">"method"</span><span class="p">:</span> <span class="s2">"GET"</span><span class="p">,</span>
-  <span class="s2">"headers"</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s2">"access_id"</span><span class="p">:</span> <span class="s2">"7493ffbeb7a8d221f6d15987945d8228"</span><span class="p">,</span>
-    <span class="s2">"time"</span><span class="p">:</span> <span class="s2">"2017"</span><span class="p">,</span>
-    <span class="s2">"content-md5"</span><span class="p">:</span> <span class="s2">"64b4aa1d9e883e0e18a920dabf8f50db"</span><span class="p">,</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">settings</span><span class="p">).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
-<span class="p">});</span>
-</code></pre>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>The response returns from the endpoint will be in JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="p">:</span><span class="err">highlighted_keywords=&gt;</span><span class="s2">"hello Paul really likes pickles in his mouth Paul also puts a little lumpy fudge in his mouth hello Paul really likes pickles in his mouth Paul also puts a little lumpy fudge in his mouth hello Paul really likes pickles in his mouth Paul also puts a little lumpy fudge in his mouth hello Paul really likes pickles in his mouth Paul also puts a little lumpy fudge in his mouth "</span><span class="w">
+    </span><span class="s2">"credit"</span><span class="p">:</span><span class="w"> </span><span class="mf">183.5</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves highlighted keywords for the order.</p>
+<h1 id="ruku">RUKU</h1>
+
+<h2 id="get-ruku">GET Ruku</h2>
+
+<p>This endpoint retrieves required ruku.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://pronoun-io.herokuapp.com/api/v1/orders/:id/highlight_keywords</code></p>
-
-<h3 id="url-parameters">URL Parameters</h3>
+<p><code class="prettyprint">GET https://alquran.com/api/v1/get_ruku/:ruko_no</code></p>
 
 <table><thead>
 <tr>
@@ -1412,74 +673,27 @@ You must replace the values of above <code>variables</code> with your personal A
 </tr>
 </thead><tbody>
 <tr>
-<td>:id</td>
-<td>The ID of the order in question</td>
+<td>:ruku_no</td>
+<td>Ruku number required</td>
 </tr>
 </tbody></table>
 
-<h2 id="pick-up-order-needs-fixing">Pick-up order(needs fixing)</h2>
-<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'uri'</span>
-<span class="nb">require</span> <span class="s1">'net/http'</span>
-
-<span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"https://pronoun-io.herokuapp.com/api/v1/orders/:id/pickup_order"</span><span class="p">)</span>
-
-<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
-<span class="n">http</span><span class="p">.</span><span class="nf">use_ssl</span> <span class="o">=</span> <span class="kp">true</span>
-<span class="n">http</span><span class="p">.</span><span class="nf">verify_mode</span> <span class="o">=</span> <span class="no">OpenSSL</span><span class="o">::</span><span class="no">SSL</span><span class="o">::</span><span class="no">VERIFY_NONE</span>
-
-<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"access_id"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'7493ffbeb7a8d221f6d15987945d8228'</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"time"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'2017'</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"content-md5"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'64b4aa1d9e883e0e18a920dabf8f50db'</span>
-
-<span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
-<span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
-
-<span class="n">url</span> <span class="o">=</span> <span class="s">"https://pronoun-io.herokuapp.com/api/v1/orders/:id/pickup_order"</span>
-
-<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">'access_id'</span><span class="p">:</span> <span class="s">"7493ffbeb7a8d221f6d15987945d8228"</span><span class="p">,</span>
-    <span class="s">'time'</span><span class="p">:</span> <span class="s">"2017"</span><span class="p">,</span>
-    <span class="s">'content-md5'</span><span class="p">:</span> <span class="s">"64b4aa1d9e883e0e18a920dabf8f50db"</span><span class="p">,</span>
-    <span class="p">}</span>
-
-<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl -X GET -H <span class="s2">"ACCESS_ID: 7493ffbeb7a8d221f6d15987945d8228"</span> -H <span class="s2">"Time: 2017"</span> -H <span class="s2">"CONTENT-MD5: 64b4aa1d9e883e0e18a920dabf8f50db"</span> <span class="s2">"https://pronoun-io.herokuapp.com/api/v1/orders/:id/pickup_order"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s2">"async"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="s2">"crossDomain"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://pronoun-io.herokuapp.com/api/v1/orders/:id/pickup_order"</span><span class="p">,</span>
-  <span class="s2">"method"</span><span class="p">:</span> <span class="s2">"GET"</span><span class="p">,</span>
-  <span class="s2">"headers"</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s2">"access_id"</span><span class="p">:</span> <span class="s2">"7493ffbeb7a8d221f6d15987945d8228"</span><span class="p">,</span>
-    <span class="s2">"time"</span><span class="p">:</span> <span class="s2">"2017"</span><span class="p">,</span>
-    <span class="s2">"content-md5"</span><span class="p">:</span> <span class="s2">"64b4aa1d9e883e0e18a920dabf8f50db"</span><span class="p">,</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">settings</span><span class="p">).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
-<span class="p">});</span>
-</code></pre>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>The response returns from the endpoint will be in JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="p">:</span><span class="err">highlighted_keywords=&gt;</span><span class="s2">"hello Paul really likes pickles in his mouth Paul also puts a little lumpy fudge in his mouth hello Paul really likes pickles in his mouth Paul also puts a little lumpy fudge in his mouth hello Paul really likes pickles in his mouth Paul also puts a little lumpy fudge in his mouth hello Paul really likes pickles in his mouth Paul also puts a little lumpy fudge in his mouth "</span><span class="w">
+    </span><span class="s2">"credit"</span><span class="p">:</span><span class="w"> </span><span class="mf">183.5</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves highlighted keywords for the order.</p>
+<h2 id="get-ruku-editions">GET Ruku Editions</h2>
+
+<p>This endpoint retrieves required ruku&rsquo;s editions.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://pronoun-io.herokuapp.com/api/v1/orders/:id/pickup_order</code></p>
-
-<h3 id="url-parameters">URL Parameters</h3>
+<p><code class="prettyprint">GET https://alquran.com/api/v1/get_ruku/:ruko_no/editions</code></p>
 
 <table><thead>
 <tr>
@@ -1488,89 +702,46 @@ You must replace the values of above <code>variables</code> with your personal A
 </tr>
 </thead><tbody>
 <tr>
-<td>:id</td>
-<td>The ID of the order in question</td>
+<td>:ruku_no</td>
+<td>Ruku number required</td>
 </tr>
 </tbody></table>
 
-<h2 id="pick-up-multiple-order-needs-fixing">Pick-up multiple order(needs fixing)</h2>
-<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'uri'</span>
-<span class="nb">require</span> <span class="s1">'net/http'</span>
-
-<span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"https://pronoun-io.herokuapp.com/api/v1/orders/:id/pickup_multiple_orders"</span><span class="p">)</span>
-
-<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
-<span class="n">http</span><span class="p">.</span><span class="nf">use_ssl</span> <span class="o">=</span> <span class="kp">true</span>
-<span class="n">http</span><span class="p">.</span><span class="nf">verify_mode</span> <span class="o">=</span> <span class="no">OpenSSL</span><span class="o">::</span><span class="no">SSL</span><span class="o">::</span><span class="no">VERIFY_NONE</span>
-
-<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"access_id"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'7493ffbeb7a8d221f6d15987945d8228'</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"time"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'2017'</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"content-md5"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'64b4aa1d9e883e0e18a920dabf8f50db'</span>
-
-<span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
-<span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
-
-<span class="n">url</span> <span class="o">=</span> <span class="s">"https://pronoun-io.herokuapp.com/api/v1/orders/:id/pickup_multiple_orders"</span>
-
-<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">'access_id'</span><span class="p">:</span> <span class="s">"7493ffbeb7a8d221f6d15987945d8228"</span><span class="p">,</span>
-    <span class="s">'time'</span><span class="p">:</span> <span class="s">"2017"</span><span class="p">,</span>
-    <span class="s">'content-md5'</span><span class="p">:</span> <span class="s">"64b4aa1d9e883e0e18a920dabf8f50db"</span><span class="p">,</span>
-    <span class="p">}</span>
-
-<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl -X GET -H <span class="s2">"ACCESS_ID: 7493ffbeb7a8d221f6d15987945d8228"</span> -H <span class="s2">"Time: 2017"</span> -H <span class="s2">"CONTENT-MD5: 64b4aa1d9e883e0e18a920dabf8f50db"</span> <span class="s2">"https://pronoun-io.herokuapp.com/api/v1/orders/:id/pickup_multiple_orders"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s2">"async"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="s2">"crossDomain"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://pronoun-io.herokuapp.com/api/v1/orders/:id/pickup_multiple_orders"</span><span class="p">,</span>
-  <span class="s2">"method"</span><span class="p">:</span> <span class="s2">"GET"</span><span class="p">,</span>
-  <span class="s2">"headers"</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s2">"access_id"</span><span class="p">:</span> <span class="s2">"7493ffbeb7a8d221f6d15987945d8228"</span><span class="p">,</span>
-    <span class="s2">"time"</span><span class="p">:</span> <span class="s2">"2017"</span><span class="p">,</span>
-    <span class="s2">"content-md5"</span><span class="p">:</span> <span class="s2">"64b4aa1d9e883e0e18a920dabf8f50db"</span><span class="p">,</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">settings</span><span class="p">).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
-<span class="p">});</span>
-</code></pre>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>The response returns from the endpoint will be in JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"order_info"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">39</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"author_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"processing_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"valued_text"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"author_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"processing_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"valued_text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"this is my text and this is to test the pickup order thing i iiiii :P"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
+    </span><span class="s2">"credit"</span><span class="p">:</span><span class="w"> </span><span class="mf">183.5</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
-<p>This endpoint picksup all the orders of the user.</p>
+<h2 id="get-all-rukus">Get All Rukus</h2>
+
+<p>This endpoint retrieves all rukus.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://pronoun-io.herokuapp.com/api/v1/orders/:id/pickup_multiple_orders</code></p>
+<p><code class="prettyprint">GET https://alquran.com/api/v1/get_rukus</code></p>
 
-<h3 id="url-parameters">URL Parameters</h3>
+<blockquote>
+<p>The response returns from the endpoint will be in JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"credit"</span><span class="p">:</span><span class="w"> </span><span class="mf">183.5</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<h1 id="manzil">MANZIL</h1>
+
+<h2 id="get-manzil">Get Manzil</h2>
+
+<p>This endpoint retrieves manzil depending upons param.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET https://alquran.com/api/v1/get_manzil/:manzil_no</code></p>
 
 <table><thead>
 <tr>
@@ -1579,80 +750,27 @@ You must replace the values of above <code>variables</code> with your personal A
 </tr>
 </thead><tbody>
 <tr>
-<td>:id</td>
-<td>The ID of the order in question</td>
+<td>:manzil_no</td>
+<td>Manzil number required</td>
 </tr>
 </tbody></table>
 
-<h2 id="accept-an-order">Accept An Order</h2>
-<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'uri'</span>
-<span class="nb">require</span> <span class="s1">'net/http'</span>
-
-<span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"https://pronoun-io.herokuapp.com/api/v1/orders/:id/accept_order"</span><span class="p">)</span>
-
-<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
-<span class="n">http</span><span class="p">.</span><span class="nf">use_ssl</span> <span class="o">=</span> <span class="kp">true</span>
-<span class="n">http</span><span class="p">.</span><span class="nf">verify_mode</span> <span class="o">=</span> <span class="no">OpenSSL</span><span class="o">::</span><span class="no">SSL</span><span class="o">::</span><span class="no">VERIFY_NONE</span>
-
-<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"access_id"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'7493ffbeb7a8d221f6d15987945d8228'</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"time"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'2017'</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"content-md5"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'64b4aa1d9e883e0e18a920dabf8f50db'</span>
-
-<span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
-<span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
-
-<span class="n">url</span> <span class="o">=</span> <span class="s">"https://pronoun-io.herokuapp.com/api/v1/orders/:id/accept_order"</span>
-
-<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">'access_id'</span><span class="p">:</span> <span class="s">"7493ffbeb7a8d221f6d15987945d8228"</span><span class="p">,</span>
-    <span class="s">'time'</span><span class="p">:</span> <span class="s">"2017"</span><span class="p">,</span>
-    <span class="s">'content-md5'</span><span class="p">:</span> <span class="s">"64b4aa1d9e883e0e18a920dabf8f50db"</span><span class="p">,</span>
-    <span class="p">}</span>
-
-<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl -X GET -H <span class="s2">"ACCESS_ID: 7493ffbeb7a8d221f6d15987945d8228"</span> -H <span class="s2">"Time: 2017"</span> -H <span class="s2">"CONTENT-MD5: 64b4aa1d9e883e0e18a920dabf8f50db"</span> <span class="s2">"https://pronoun-io.herokuapp.com/api/v1/orders/:id/accept_order"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s2">"async"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="s2">"crossDomain"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://pronoun-io.herokuapp.com/api/v1/orders/:id/accept_order"</span><span class="p">,</span>
-  <span class="s2">"method"</span><span class="p">:</span> <span class="s2">"GET"</span><span class="p">,</span>
-  <span class="s2">"headers"</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s2">"access_id"</span><span class="p">:</span> <span class="s2">"7493ffbeb7a8d221f6d15987945d8228"</span><span class="p">,</span>
-    <span class="s2">"time"</span><span class="p">:</span> <span class="s2">"2017"</span><span class="p">,</span>
-    <span class="s2">"content-md5"</span><span class="p">:</span> <span class="s2">"64b4aa1d9e883e0e18a920dabf8f50db"</span><span class="p">,</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">settings</span><span class="p">).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
-<span class="p">});</span>
-</code></pre>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>The response returns from the endpoint will be in JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"order_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">34</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">55</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"author_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">19</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"processing_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"valued_text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hello Paul really likes pickles in his mouth Paul also puts a little lumpy fudge in his mouth hello Paul really likes pickles in his mouth Paul also puts a little lumpy fudge in his mouth hello Paul really likes pickles in his mouth Paul also puts a little lumpy fudge in his mouth hello Paul really likes pickles in his mouth Paul also puts a little lumpy fudge in his mouth "</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+    </span><span class="s2">"credit"</span><span class="p">:</span><span class="w"> </span><span class="mf">183.5</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
-<p>This endpoint changes the state of the order to accepted.</p>
+<h2 id="get-manzil-editions">Get Manzil Editions</h2>
+
+<p>This endpoint retrieves manzil&rsquo;s editions depending upons param.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://pronoun-io.herokuapp.com/api/v1/orders/:id/accept_order</code></p>
-
-<h3 id="url-parameters">URL Parameters</h3>
+<p><code class="prettyprint">GET https://alquran.com/api/v1/get_manzil/:manzil_no</code></p>
 
 <table><thead>
 <tr>
@@ -1661,263 +779,59 @@ You must replace the values of above <code>variables</code> with your personal A
 </tr>
 </thead><tbody>
 <tr>
-<td>:id</td>
-<td>The ID of the order in question</td>
+<td>:manzil_no</td>
+<td>Manzil number required</td>
 </tr>
 </tbody></table>
 
-<h2 id="reject-an-order">Reject An Order</h2>
-<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'uri'</span>
-<span class="nb">require</span> <span class="s1">'net/http'</span>
-
-<span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"https://pronoun-io.herokuapp.com/api/v1/orders/:id/reject_order"</span><span class="p">)</span>
-
-<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
-<span class="n">http</span><span class="p">.</span><span class="nf">use_ssl</span> <span class="o">=</span> <span class="kp">true</span>
-<span class="n">http</span><span class="p">.</span><span class="nf">verify_mode</span> <span class="o">=</span> <span class="no">OpenSSL</span><span class="o">::</span><span class="no">SSL</span><span class="o">::</span><span class="no">VERIFY_NONE</span>
-
-<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"access_id"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'7493ffbeb7a8d221f6d15987945d8228'</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"time"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'2017'</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"content-md5"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'64b4aa1d9e883e0e18a920dabf8f50db'</span>
-
-<span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
-<span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
-
-<span class="n">url</span> <span class="o">=</span> <span class="s">"https://pronoun-io.herokuapp.com/api/v1/orders/:id/reject_order"</span>
-
-<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">'access_id'</span><span class="p">:</span> <span class="s">"7493ffbeb7a8d221f6d15987945d8228"</span><span class="p">,</span>
-    <span class="s">'time'</span><span class="p">:</span> <span class="s">"2017"</span><span class="p">,</span>
-    <span class="s">'content-md5'</span><span class="p">:</span> <span class="s">"64b4aa1d9e883e0e18a920dabf8f50db"</span><span class="p">,</span>
-    <span class="p">}</span>
-
-<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl -X GET -H <span class="s2">"ACCESS_ID: 7493ffbeb7a8d221f6d15987945d8228"</span> -H <span class="s2">"Time: 2017"</span> -H <span class="s2">"CONTENT-MD5: 64b4aa1d9e883e0e18a920dabf8f50db"</span> <span class="s2">"https://pronoun-io.herokuapp.com/api/v1/orders/:id/reject_order"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s2">"async"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="s2">"crossDomain"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://pronoun-io.herokuapp.com/api/v1/orders/:id/reject_order"</span><span class="p">,</span>
-  <span class="s2">"method"</span><span class="p">:</span> <span class="s2">"GET"</span><span class="p">,</span>
-  <span class="s2">"headers"</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s2">"access_id"</span><span class="p">:</span> <span class="s2">"7493ffbeb7a8d221f6d15987945d8228"</span><span class="p">,</span>
-    <span class="s2">"time"</span><span class="p">:</span> <span class="s2">"2017"</span><span class="p">,</span>
-    <span class="s2">"content-md5"</span><span class="p">:</span> <span class="s2">"64b4aa1d9e883e0e18a920dabf8f50db"</span><span class="p">,</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">settings</span><span class="p">).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
-<span class="p">});</span>
-</code></pre>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>The response returns from the endpoint will be in JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"order_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">34</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">55</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"author_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">19</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"processing_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"valued_text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hello Paul really likes pickles in his mouth Paul also puts a little lumpy fudge in his mouth hello Paul really likes pickles in his mouth Paul also puts a little lumpy fudge in his mouth hello Paul really likes pickles in his mouth Paul also puts a little lumpy fudge in his mouth hello Paul really likes pickles in his mouth Paul also puts a little lumpy fudge in his mouth "</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+    </span><span class="s2">"credit"</span><span class="p">:</span><span class="w"> </span><span class="mf">183.5</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
-<p>This endpoint changes the state of the order to rejected.</p>
+<h2 id="get-all-manzils">Get All Manzils</h2>
+
+<p>This endpoint retrieves all manzils in arabic.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://pronoun-io.herokuapp.com/api/v1/orders/:id/reject_order</code></p>
+<p><code class="prettyprint">GET https://alquran.com/api/v1/get_manzils</code></p>
 
-<h3 id="url-parameters">URL Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>:id</td>
-<td>The ID of the order in question</td>
-</tr>
-</tbody></table>
-
-<h2 id="revise-an-order">Revise An Order</h2>
-<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'uri'</span>
-<span class="nb">require</span> <span class="s1">'net/http'</span>
-
-<span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"https://pronoun-io.herokuapp.com/api/v1/orders/:id/revise_order"</span><span class="p">)</span>
-
-<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
-<span class="n">http</span><span class="p">.</span><span class="nf">use_ssl</span> <span class="o">=</span> <span class="kp">true</span>
-<span class="n">http</span><span class="p">.</span><span class="nf">verify_mode</span> <span class="o">=</span> <span class="no">OpenSSL</span><span class="o">::</span><span class="no">SSL</span><span class="o">::</span><span class="no">VERIFY_NONE</span>
-
-<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"access_id"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'7493ffbeb7a8d221f6d15987945d8228'</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"time"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'2017'</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"content-md5"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'64b4aa1d9e883e0e18a920dabf8f50db'</span>
-
-<span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
-<span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
-
-<span class="n">url</span> <span class="o">=</span> <span class="s">"https://pronoun-io.herokuapp.com/api/v1/orders/:id/revise_order"</span>
-
-<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">'access_id'</span><span class="p">:</span> <span class="s">"7493ffbeb7a8d221f6d15987945d8228"</span><span class="p">,</span>
-    <span class="s">'time'</span><span class="p">:</span> <span class="s">"2017"</span><span class="p">,</span>
-    <span class="s">'content-md5'</span><span class="p">:</span> <span class="s">"64b4aa1d9e883e0e18a920dabf8f50db"</span><span class="p">,</span>
-    <span class="p">}</span>
-
-<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl -X GET -H <span class="s2">"ACCESS_ID: 7493ffbeb7a8d221f6d15987945d8228"</span> -H <span class="s2">"Time: 2017"</span> -H <span class="s2">"CONTENT-MD5: 64b4aa1d9e883e0e18a920dabf8f50db"</span> <span class="s2">"https://pronoun-io.herokuapp.com/api/v1/orders/:id/revise_order"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s2">"async"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="s2">"crossDomain"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://pronoun-io.herokuapp.com/api/v1/orders/:id/revise_order"</span><span class="p">,</span>
-  <span class="s2">"method"</span><span class="p">:</span> <span class="s2">"GET"</span><span class="p">,</span>
-  <span class="s2">"headers"</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s2">"access_id"</span><span class="p">:</span> <span class="s2">"7493ffbeb7a8d221f6d15987945d8228"</span><span class="p">,</span>
-    <span class="s2">"time"</span><span class="p">:</span> <span class="s2">"2017"</span><span class="p">,</span>
-    <span class="s2">"content-md5"</span><span class="p">:</span> <span class="s2">"64b4aa1d9e883e0e18a920dabf8f50db"</span><span class="p">,</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">settings</span><span class="p">).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
-<span class="p">});</span>
-</code></pre>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>The response returns from the endpoint will be in JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"order_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">34</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">55</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"author_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">19</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"processing_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"valued_text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hello Paul really likes pickles in his mouth Paul also puts a little lumpy fudge in his mouth hello Paul really likes pickles in his mouth Paul also puts a little lumpy fudge in his mouth hello Paul really likes pickles in his mouth Paul also puts a little lumpy fudge in his mouth hello Paul really likes pickles in his mouth Paul also puts a little lumpy fudge in his mouth "</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+    </span><span class="s2">"credit"</span><span class="p">:</span><span class="w"> </span><span class="mf">183.5</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
-<p>This endpoint changes the state of the order to revision.</p>
+<h1 id="search">SEARCH</h1>
+
+<h2 id="get-search-results">Get Search Results</h2>
+
+<p>This endpoint retrieves all references / results that matches the searched query in editions.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://pronoun-io.herokuapp.com/api/v1/orders/:id/revise_order</code></p>
+<p><code class="prettyprint">GET https://alquran.com/api/v1/get_references/:query</code></p>
 
-<h3 id="url-parameters">URL Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>:id</td>
-<td>The ID of the order in question</td>
-</tr>
-</tbody></table>
-
-<h1 id="categories">Categories</h1>
-
-<h2 id="get-all-categories">Get All Categories</h2>
-<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'uri'</span>
-<span class="nb">require</span> <span class="s1">'net/http'</span>
-
-<span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"https://pronoun-io.herokuapp.com/api/v1/categories"</span><span class="p">)</span>
-
-<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
-<span class="n">http</span><span class="p">.</span><span class="nf">use_ssl</span> <span class="o">=</span> <span class="kp">true</span>
-<span class="n">http</span><span class="p">.</span><span class="nf">verify_mode</span> <span class="o">=</span> <span class="no">OpenSSL</span><span class="o">::</span><span class="no">SSL</span><span class="o">::</span><span class="no">VERIFY_NONE</span>
-
-<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"access_id"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'7493ffbeb7a8d221f6d15987945d8228'</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"time"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'2017'</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"content-md5"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'64b4aa1d9e883e0e18a920dabf8f50db'</span>
-
-<span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
-<span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
-
-<span class="n">url</span> <span class="o">=</span> <span class="s">"https://pronoun-io.herokuapp.com/api/v1/categories"</span>
-
-<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">'access_id'</span><span class="p">:</span> <span class="s">"7493ffbeb7a8d221f6d15987945d8228"</span><span class="p">,</span>
-    <span class="s">'time'</span><span class="p">:</span> <span class="s">"2017"</span><span class="p">,</span>
-    <span class="s">'content-md5'</span><span class="p">:</span> <span class="s">"64b4aa1d9e883e0e18a920dabf8f50db"</span><span class="p">,</span>
-    <span class="p">}</span>
-
-<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl -X GET -H <span class="s2">"ACCESS_ID: 7493ffbeb7a8d221f6d15987945d8228"</span> -H <span class="s2">"Time: 2017"</span> -H <span class="s2">"CONTENT-MD5: 64b4aa1d9e883e0e18a920dabf8f50db"</span> <span class="s2">"https://pronoun-io.herokuapp.com/api/v1/categories"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s2">"async"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="s2">"crossDomain"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://pronoun-io.herokuapp.com/api/v1/categories"</span><span class="p">,</span>
-  <span class="s2">"method"</span><span class="p">:</span> <span class="s2">"GET"</span><span class="p">,</span>
-  <span class="s2">"headers"</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s2">"access_id"</span><span class="p">:</span> <span class="s2">"7493ffbeb7a8d221f6d15987945d8228"</span><span class="p">,</span>
-    <span class="s2">"time"</span><span class="p">:</span> <span class="s2">"2017"</span><span class="p">,</span>
-    <span class="s2">"content-md5"</span><span class="p">:</span> <span class="s2">"64b4aa1d9e883e0e18a920dabf8f50db"</span><span class="p">,</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">settings</span><span class="p">).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
-<span class="p">});</span>
-</code></pre>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>The response returns from the endpoint will be in JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"categories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"industry"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-12-01T14:50:14.237Z"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-12-01T14:50:14.237Z"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"animals"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-12-02T13:03:22.907Z"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-12-02T13:03:22.907Z"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"arts and crafts"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-12-02T13:03:22.935Z"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-12-02T13:03:22.935Z"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
+    </span><span class="s2">"credit"</span><span class="p">:</span><span class="w"> </span><span class="mf">183.5</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves All Categories.</p>
-
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code class="prettyprint">GET https://pronoun-io.herokuapp.com/api/v1/categories</code></p>
-
           <h1 id="errors">Errors</h1>
 
-<aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files&hellip;just save them to the `includes` folder and add them to the top of your `index.md`&lsquo;s frontmatter. Files are included in the order listed.</aside>
-
-<p>The Kittn API uses the following error codes:</p>
+<p>Our API uses the following error codes:</p>
 
 <table><thead>
 <tr>
@@ -1974,10 +888,7 @@ You must replace the values of above <code>variables</code> with your personal A
       </div>
       <div class="dark-box">
           <div class="lang-selector">
-                <a href="#" data-language-name="shell">shell</a>
-                <a href="#" data-language-name="ruby">ruby</a>
-                <a href="#" data-language-name="python">python</a>
-                <a href="#" data-language-name="javascript">javascript</a>
+                <a href="#" data-language-name="json">json</a>
           </div>
       </div>
     </div>
